@@ -8,7 +8,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CLIappDT.Services;
 
-class TripService
+interface ITripService
+{
+    public Task ImportTripsDataCSV(Stream csvFile, bool? continueWithExceptions = false);
+    public List<Trip> GetTripsByLocation(int locationId);
+    public List<Trip> GetLongestTripsByTime();
+    public List<Trip> GetLongestTripsByDistance();
+    public List<Trip> GetTopLocationTripWithMaxTipAmount();
+}
+
+class TripService : ITripService
 {
     private readonly ApplicationContext _context;
     public TripService(ApplicationContext context)
