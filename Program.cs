@@ -8,7 +8,7 @@ Console.WriteLine("GetTripsByLocation -tbl\n" +
                   "GetTopLocationTripWithMaxTipAmount -mxt\n" +
                   "To exit the program, type 'exit'");
 
-TripService tripService = new TripService(new ApplicationContext());
+ITripService tripService = new TripService(new ApplicationContext());
 List<Trip> trips;
 
 while (true)
@@ -21,6 +21,7 @@ while (true)
 
     if (command.ToLower() == "-i")
     {
+        Console.Write("Enter path to CSV file: ");
         string pathToFile = Console.ReadLine();
         if (!String.IsNullOrEmpty(pathToFile))
         {
