@@ -1,0 +1,1 @@
+﻿Total rows after import data frrom CSV: 29840.
